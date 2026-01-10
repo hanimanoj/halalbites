@@ -21,7 +21,7 @@ class DirectoryController extends Controller
         $category = Category::where('slug', $slug)->firstOrFail();
 
         return view('directory.index', [
-            'brands' => $category->brands()->with('locations')->get(),
+            'brands' => $category->brands()->with(['category', 'locations'])->get(),
             'categories' => Category::all(),
             'currentCategory' => $category->slug
         ]);
@@ -29,6 +29,13 @@ class DirectoryController extends Controller
     
     public function show(Brand $brand)
     {
-        return view('directory.show', compact('brand'));
+        $brand->load('category');
+
+        return view('details', [
+            'brand' => $brand,
+            'location' => $brand->locations()->first(),
+            'categories' => Category::all(),
+            'currentCategory' => $brand->category->slug,
+        ]); 
     }
 }

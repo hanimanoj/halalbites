@@ -27,7 +27,7 @@ class Brand extends Model
 
     public function getHalalStatusAttribute()
     {
-        return $this->halal_expiry_year >= now()->year
+        return $this->expiry_year >= now()->year
             ? 'Active'
             : 'Expired';
     }
