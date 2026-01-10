@@ -14,11 +14,8 @@ Route::get('/directory', [DirectoryController::class, 'index'])
 Route::get('/directory/category/{slug}', [DirectoryController::class, 'category'])
     ->name('directory.category');
 
-Route::get('/directory/{brand}', [DirectoryController::class, 'show'])
+Route::get('/directory/{brand:slug}', [DirectoryController::class, 'show'])
     ->name('directory.show');
-
-Route::get('/brands/{brand}', [DirectoryController::class, 'show'])
-    ->name('brand.show');
 
 Route::get('/saved', [SavedController::class, 'index'])
     ->name('saved.index');

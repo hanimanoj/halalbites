@@ -31,4 +31,9 @@ class Brand extends Model
             ? 'Active'
             : 'Expired';
     }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }

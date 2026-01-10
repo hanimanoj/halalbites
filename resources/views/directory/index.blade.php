@@ -73,7 +73,7 @@
           </p>
 
           <!-- GO BUTTON -->
-          <a href="{{ route('directory.show', ['brand' => $brand->id]) }}"
+          <a href="{{ route('directory.show', $brand->slug) }}"
             class="absolute bottom-4 left-4 right-4
                   bg-white text-[#6b1f1f]
                   text-xs font-semibold
