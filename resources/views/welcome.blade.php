@@ -12,7 +12,7 @@
 
 <section class="about">
     <h2>About Us</h2>
-    <img src="{{ asset('black.png') }}" alt="Halal Bites Logo" class="black-logo">
+    <img src="{{ asset('images/logos/black.png') }}" alt="Halal Bites Logo" class="black-logo">
     <p>
         Halal Bites Gombak is a platform designed to help users identify
         authentic JAKIM halal-certified food and beverage outlets within
@@ -24,7 +24,7 @@
 
 <section class="jakim">
     <h2>What is JAKIM?</h2>
-    <img src="{{ asset('jakim.png') }}" alt="JAKIM Logo" class="jakim-logo">
+    <img src="{{ asset('images/logos/jakim.png') }}" alt="JAKIM Logo" class="jakim-logo">
     <p>
         JAKIM (Jabatan Kemajuan Islam Malaysia) is the official authority 
         responsible for issuing and monitoring halal certifications in Malaysia. 

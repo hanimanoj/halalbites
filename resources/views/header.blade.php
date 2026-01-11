@@ -7,7 +7,7 @@
     <div class="nav-centre">
         <nav>
             <a href="{{ route('home') }}"
-               class="{{ request()->routeIs('home') ? 'active' : '' }}">
+               class="{{ request()->routeIs('welcome') ? 'active' : '' }}">
                 Home
             </a>
 

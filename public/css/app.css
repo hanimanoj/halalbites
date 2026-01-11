@@ -113,22 +113,36 @@ nav a.active {
 
 .black-logo {
     width: 200px;
+    display: block;
+    margin: 20px auto;
 }
 
 /*JAKIM*/
 
 .jakim {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
+    padding: 60px 20px;
+}
+
+.jakim-logo {
+    width: 200px;
+    align-self: center;
+    margin: 20px 0;
 }
 
 .jakim p {
     font-size: 25px;
     padding-left: 150px;
     padding-right: 150px;
+
 }
 
 .jakim h2{
     font-size: 35px;
+    margin-bottom: 20px;
 }
 
 /*HALAL*/
@@ -144,8 +158,13 @@ nav a.active {
     font-size: 25px;
 }
 
-.card {
-    font-size: 25px;
+.card-container {
+    padding-top: 30px;
+    font-size: 20px;
+    display: flex;
+    gap: 30px;             /* jarak antara card */
+    justify-content: center;
+    flex-wrap: wrap;       /* responsive */
 }
 
 /* SECTION */

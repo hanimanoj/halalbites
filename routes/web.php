@@ -6,8 +6,8 @@ use App\Http\Controllers\BrandController;
 use App\Http\Controllers\SavedController;
 
 Route::get('/', function () {
-    return redirect()->route('directory.index');
-})->name('welcome');
+    return view('welcome');
+})->name('home');
 
 Route::get('/directory', [DirectoryController::class, 'index'])
     ->name('directory.index');
