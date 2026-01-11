@@ -24,3 +24,26 @@ Route::get('/saved', [SavedController::class, 'index'])
 Route::post('/saved/{brand}', [SavedController::class, 'store'])->name('saved.store');
 Route::delete('/saved/{brand}', [SavedController::class, 'destroy'])->name('saved.destroy');
 Route::get('/saved', [SavedController::class, 'index'])->name('saved.index');
+
+Route::get('/settings', function () {
+    return view('settings');
+})->name('settings');
+
+Route::post('/settings/toggle', function (Request $request) {
+    session([
+        'dark_mode' => $request->has('dark_mode'),
+    ]);
+
+    return redirect()->back();
+})->name('toggle.mode');
+
+Route::post('/settings/language-toggle', function (Request $request) {
+    session([
+        'locale' => $request->has('language') ? 'ms' : 'en',
+    ]);
+
+    return redirect()->back();
+})->name('language.toggle');
+
+Route::post('/settings/permission', [SettingsController::class, 'savePermission'])
+    ->name('settings.permission');
