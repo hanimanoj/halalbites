@@ -19,3 +19,12 @@ Route::get('/directory/{brand:slug}', [DirectoryController::class, 'show'])
 
 Route::get('/saved', [SavedController::class, 'index'])
     ->name('saved.index');
+
+Route::get('/search', [SearchController::class, 'index'])->name('saved');
+Route::get('/saved', [SavedController::class, 'index']);
+
+// AJAX toggle saved
+Route::post('/toggle-save/{id}', [SavedController::class, 'toggleSave'])->name('toggle-save');
+
+//Search
+Route::get('/search-restaurants', [RestaurantController::class, 'search']);
