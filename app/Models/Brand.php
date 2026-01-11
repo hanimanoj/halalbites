@@ -36,4 +36,9 @@ class Brand extends Model
     {
         return 'slug';
     }
+
+    public function savedByUsers()
+    {
+        return $this->belongsToMany(User::class, 'saved_brands');
+    }
 }

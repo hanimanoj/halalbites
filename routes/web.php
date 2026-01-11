@@ -21,4 +21,6 @@ Route::get('/directory/{brand:slug}', [DirectoryController::class, 'show'])
 Route::get('/saved', [SavedController::class, 'index'])
     ->name('saved.index');
 
-Route::post('/toggle-save/{id}', [SavedController::class, 'toggleSave']);
+Route::post('/saved/{brand}', [SavedController::class, 'store'])->name('saved.store');
+Route::delete('/saved/{brand}', [SavedController::class, 'destroy'])->name('saved.destroy');
+Route::get('/saved', [SavedController::class, 'index'])->name('saved.index');

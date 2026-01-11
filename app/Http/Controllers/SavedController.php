@@ -2,41 +2,41 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Brand;
 use Illuminate\Http\Request;
-use App\Models\Place;
-use Illuminate\Support\Facades\Auth;
 
 class SavedController extends Controller
 {
-    // Show saved page 
     public function index()
     {
-        $user = Auth::user();
+        $savedIds = session()->get('saved_brands', []);
+        $savedBrands = Brand::with('locations')
+            ->whereIn('id', $savedIds)
+            ->get();
 
-        $savedPlaces = Place::all()->map(function($place) use ($user){
-            $place->is_saved = $user->savedPlaces->contains($place->id);
-            return $place;
-        });
-
-        return view('saved', compact('savedPlaces'));
+        return view('saved', compact('savedBrands'));
     }
 
-    // Toggle saved via AJAX
-    public function toggleSave($id)
+    public function store(Brand $brand)
     {
-        $user = Auth::user();
-        $place = Place::findOrFail($id);
+        $saved = session()->get('saved_brands', []);
 
-        if($user->savedPlaces->contains($place->id)){
-            // unsave
-            $user->savedPlaces()->detach($place->id);
-            $saved = false;
-        } else {
-            // save
-            $user->savedPlaces()->attach($place->id);
-            $saved = true;
+        if (!in_array($brand->id, $saved)) {
+            $saved[] = $brand->id;
         }
 
-        return response()->json(['saved' => $saved]);
+        session()->put('saved_brands', $saved);
+
+        return redirect()->route('saved.index');
+    }
+
+    public function destroy(Brand $brand)
+    {
+        $saved = session()->get('saved_brands', []);
+        $saved = array_diff($saved, [$brand->id]);
+
+        session()->put('saved_brands', $saved);
+
+        return back();
     }
 }

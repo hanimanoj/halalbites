@@ -46,8 +46,9 @@ class User extends Authenticatable
         ];
     }
 
-     public function savedPlaces()
-    {
-        return $this->belongsToMany(Place::class, 'user_saved_places'); // table pivot
+    public function savedBrands()
+    {   
+        return $this->belongsToMany(Brand::class, 'saved_brands')
+                ->withTimestamps();
     }
 }

@@ -53,22 +53,15 @@ nav a.active {
 }
 
 .nav-right {
-    margin-left: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.search-icon, .settings-icon, .profile-icon {
+    width: 26px;
+    height: 26px;
     cursor: pointer;
-}
-
-.search-icon {
-    width: 30px;
-    padding-right: 10px;
-}
-
-.settings-icon {
-    width: 30px;
-    padding-right: 10px;
-}
-
-.profile-icon {
-    width: 30px;
 }
 
 
