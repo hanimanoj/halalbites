@@ -1,24 +1,32 @@
-<footer class="bg-[#6B1F1F] text-white px-12 py-10">
-    <div class="flex justify-between mb-6">
-        <div>
-            <h4 class="font-semibold mb-2">CONTACT US</h4>
-            <div class="flex gap-4 text-lg">✉️ 📞</div>
+<footer class="footer">
+    <div class="footer-top-row">
+        <div class="footer-contact">
+            <h4>CONTACT US</h4>
+            <div class="footer-icons">
+                <img src="{{ asset('email.png') }}" alt="email" class="email-icon">
+                <img src="{{ asset('call.png') }}" alt="call" class="call-icon">
+            </div>
         </div>
 
-        <div>
-            <h4 class="font-semibold mb-2">FOLLOW US</h4>
-            <div class="flex gap-4 text-lg">
-                <span class="hover:text-gray-300 cursor-pointer transition">📷</span>
-                <span class="hover:text-gray-300 cursor-pointer transition">🎵</span>
-                <span class="hover:text-gray-300 cursor-pointer transition">📘</span>
+        <div class="footer-follow">
+            <h4>FOLLOW US</h4>
+            <div class="footer-icons">
+                <img src="{{ asset('ig.png') }}" alt="ig" class="ig-icon">
+                <img src="{{ asset('tiktok.png') }}" alt="tiktok" class="tiktok-icon">
             </div>
         </div>
     </div>
 
-    <hr class="border-white/40 mb-4">
+        <hr>
+    <div class="footer-bottom-row">
+        <p class = "faq">
+            Help | FAQs | Terms of Use & Privacy Policy
+        </p>
+        
+        <p class="footer-copy">
+            © 2026 Halal Bites Gombak. All Rights Reserved.
+        </p>
 
-    <p class="text-center text-sm opacity-80">
-        Help | FAQs | Terms of Use & Privacy Policy <br>
-        © 2025 Halal Bites Gombak. All Rights Reserved.
-    </p>
+    </div>
 </footer>
+
