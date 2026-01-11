@@ -7,7 +7,7 @@ use App\Http\Controllers\SavedController;
 
 Route::get('/', function () {
     return redirect()->route('directory.index');
-})->name('home');
+})->name('welcome');
 
 Route::get('/directory', [DirectoryController::class, 'index'])
     ->name('directory.index');
