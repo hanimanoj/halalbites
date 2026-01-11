@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 class SavedController extends Controller
 {
-    // Tampilkan page saved
+    // Show saved page 
     public function index()
     {
         $user = Auth::user();

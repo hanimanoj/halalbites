@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DirectoryController;
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\SavedController;
 
 Route::get('/', function () {
     return redirect()->route('directory.index');
@@ -19,3 +20,5 @@ Route::get('/directory/{brand:slug}', [DirectoryController::class, 'show'])
 
 Route::get('/saved', [SavedController::class, 'index'])
     ->name('saved.index');
+
+Route::post('/toggle-save/{id}', [SavedController::class, 'toggleSave']);
