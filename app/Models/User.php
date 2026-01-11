@@ -45,4 +45,9 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+     public function savedPlaces()
+    {
+        return $this->belongsToMany(Place::class, 'user_saved_places'); // table pivot
+    }
 }
