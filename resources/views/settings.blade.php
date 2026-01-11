@@ -2,19 +2,19 @@
 
 @section('content')
 <div class="settings-page">
-    <h1>{{ __('settings.settings') }}</h1>
+    <h1>Settings</h1>
 
     <div class="settings-card">
 
         {{-- PREFERENCES --}}
-        <h3 class="section-title">{{ __('settings.preferences') }}</h3>
+        <h3 class="section-title">Preferences</h3>
         <hr>
 
 
         <form method="POST" action="{{ route('toggle.mode') }}">
             @csrf
             <div class="setting-item">
-                <span>{{ __('settings.mode') }}</span>
+                <span>Mode</span>
 
                 <label class="switch">
                     <input type="checkbox"
@@ -30,7 +30,7 @@
         <form method="POST" action="{{ route('language.toggle') }}">
             @csrf
             <div class="setting-item">
-                <span>{{ __('settings.language') }}</span>
+                <span>Language</span>
 
                 <label class="switch">
                     <input type="checkbox"
@@ -43,11 +43,11 @@
         </form>
 
         {{-- PERMISSION --}}
-        <h3 class="section-title">{{ __('settings.permission') }}</h3>
+        <h3 class="section-title">Permission</h3>
         <hr>
 
         <div class="setting-item">
-            <span>{{ __('settings.notification') }}</span>
+            <span>Notification</span>
             <label class="switch">
                 <input type="checkbox" onclick="testNotification(this)">
                 <span class="slider"></span>
@@ -56,7 +56,7 @@
 
 
         <div class="setting-item">
-            <span>{{ __('settings.location') }}</span>
+            <span>Location</span>
             <label class="switch">
                 <input type="checkbox" onclick="testLocation(this)">
                 <span class="slider"></span>

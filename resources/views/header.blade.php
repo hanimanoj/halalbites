@@ -28,7 +28,7 @@
             <img src="{{ asset('images/logos/search.png') }}" alt="search" class="search-icon">
         </a>
 
-        <a href="#" class="logo">
+        <a href="{{ route('settings') }}" class="logo">
             <img src="{{ asset('images/logos/settings.png') }}" alt="settings" class="settings-icon">
         </a>
 

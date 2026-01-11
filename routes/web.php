@@ -1,9 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 use App\Http\Controllers\DirectoryController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\SavedController;
+use App\Http\Controllers\SettingsController;
 
 Route::get('/', function () {
     return view('welcome');

@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <title>Halal Bites Gombak</title>
 
-    @vite('resources/css/app.css')
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    @vite('resources/css/app.css')
 
 </head>
 
-<body class="bg-[#F6E4E1]">
+<body class="{{ session('dark_mode') ? 'dark' : '' }}">
 
     {{-- HEADER --}}
     @include('header')
