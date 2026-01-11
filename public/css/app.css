@@ -208,81 +208,73 @@ nav a.active {
 
 /* FOOTER */
 .footer {
-    background: #7b2d2d;
+    background: #6d1f1f;
     color: white;
+    padding: 25px 60px;
+}
+
+/* TOP ROW */
+.footer-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* SECTION */
+.footer-section {
     text-align: center;
-    padding: 1px 20px;  
+    flex: 1;
 }
 
-.email-icon{
-    width: 38px;
+.footer-section h4 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
 }
 
-.call-icon{
-    width: 38px;
+/* ICONS */
+.footer-icons {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
 }
 
-.ig-icon{
-    width: 38px;
-    padding-bottom: 1px;
-    padding-right: 5px;
-}
-
-.tiktok-icon{
-    width: 32px;
-}
-
-.footer-icons span {
-    margin: 0 10px;
+.footer-icons img {
+    width: 24px;
+    height: 24px;
     cursor: pointer;
 }
 
-.footer-copy {
-    margin-top: 20px;
-    font-size: 15px;
+/* DIVIDER */
+.footer-divider {
+    border: none;
+    height: 1px;
+    background: rgba(255,255,255,0.6);
+    margin: 15px 0;
 }
 
-.footer-top-row {
-    display: flex;
-    justify-content: space-between; 
-    align-items: flex-start;        
-    margin-bottom: 20px;
-    padding-top: 5px;
-}
-
-.footer-contact, .footer-follow {
-    text-align: center;
-    margin-bottom: 5px;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 20px;
-}
-
-.footer-contact {
-    padding-left: 450px;
-}
-
-.footer-follow {
-    padding-right: 450px;
-}
-
-
+/* BOTTOM ROW */
 .footer-bottom-row {
     display: flex;
-    justify-content: space-between; 
-    align-items: center;
-    font-size: 0.85rem;             
+    justify-content: space-between;
+    font-size: 13px;
     opacity: 0.9;
 }
 
-.footer-copy {
-    align-items: right;
+.faq {
+    text-align: left;
 }
 
-.faq {
-    align-items: left;
-    font-size: 15px;
+.footer-copy {
+    text-align: right;
 }
+
+/* DARK MODE */
+body.dark .footer {
+    background: #000000;
+}
+
 /*SETTINGS */
 .setting-item {
     color: #fff;
