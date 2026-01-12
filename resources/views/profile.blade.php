@@ -1,111 +1,58 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Profile - Halal Bites Gombak</title>
+@extends('layouts.app')
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
-        }
+@section('content')
 
-        header {
-            background-color: #6b1f1f;
-            color: white;
-            padding: 15px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+<div class="profile-wrapper">
 
-        nav a {
-            color: white;
-            margin: 0 10px;
-            text-decoration: none;
-        }
+    <h1 class="welcome-title">
+        Welcome Back, {{ $user['name'] }}
+    </h1>
 
-        .container {
-            padding: 40px;
-            display: flex;
-            gap: 60px;
-            align-items: center;
-            justify-content: center;
-        }
+    <form method="POST" action="{{ route('logout') }}" class="logout-btn">
+        @csrf
+        <button type="submit">Logout</button>
+    </form>
 
-        .avatar {
-            text-align: center;
-        }
+    <div class="container profile-card">
 
-        .avatar-circle {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            background-color: #c97c7c;
-            margin-bottom: 15px;
-        }
+        <div class="avatar">
+            <div class="avatar-circle">
+                {{-- optional icon --}}
+                <img src="{{ asset('images/logos/profile.png') }}" alt="profile">
+            </div>
 
-        .info h2 {
-            color: #6b1f1f;
-        }
+            <a href="{{ route('profile.edit') }}" class="edit-link">
+                Edit Profile
+            </a>
+        </div>
 
-        footer {
-            background-color: #6b1f1f;
-            color: white;
-            padding: 30px;
-            display: flex;
-            justify-content: space-between;
-        }
-    </style>
-</head>
-<body>
+        <div class="info">
+            <h2>Contact Information</h2>
 
-<header>
-    <h3>Halal Bites Gombak</h3>
-    <nav>
-        <a href="#">Home</a>
-        <a href="#">Directory</a>
-        <a href="#">Saved</a>
-        <a href="{{ route('logout') }}">Logout</a>
-    </nav>
-</header>
+            <p class="info-item">
+                <strong>Email</strong><br>
+                {{ $user['email'] }}
+            </p>
 
-<h1 style="text-align:center; margin-top:40px;">
-    Welcome Back, {{ $user['name'] }}
-</h1>
+            <p class="info-item">
+                <strong>Phone</strong><br>
+                {{ $user['phone'] }}
+            </p>
 
-<div class="container">
-    <div class="avatar">
-        <div class="avatar-circle"></div>
-        <a href="{{ route('profile.edit') }}">Edit Profile</a>
-        
+            <p class="info-item">
+                <strong>Location</strong><br>
+                {{ $user['location'] }}
+            </p>
+        </div>
+
     </div>
 
-    <div class="info">
-        <h2>Contact Information</h2>
-        <p><strong>Email:</strong> {{ $user['email'] }}</p>
-        <p><strong>Phone:</strong> {{ $user['phone'] }}</p>
-        <p><strong>Location:</strong> {{ $user['location'] }}</p>
-    </div>
+    @if(session('success'))
+        <p class="success-msg">
+            {{ session('success') }}
+        </p>
+    @endif
+
 </div>
 
-<footer>
-    <div>
-        <strong>CONTACT US</strong><br>
-        Email | Phone
-    </div>
-
-    <div>
-        <strong>FOLLOW US</strong><br>
-        Instagram | TikTok | Facebook
-    </div>
-</footer>
-
-</body>
-</html>
-@if(session('success'))
-    <p style="color: green; text-align:center;">
-        {{ session('success') }}
-    </p>
-@endif
+@endsection

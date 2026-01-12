@@ -433,3 +433,180 @@ body.dark .footer {
     width: 100%;
     margin: 40px auto;
 }
+
+/*PROFILE PAGE*/
+/* BACKGROUND PAGE */
+.profile-page {
+    position: relative;
+    min-height: 100vh;
+}
+
+.profile-wrapper {
+    background-color: #fdebea;
+    min-height: 75vh;
+    padding-top: 20px;
+}
+
+/* WELCOME */
+.welcome-title {
+    text-align: center;
+    color: #6b1f1f;
+    font-size: 28px;
+    margin-bottom: 40px;
+}
+
+/* CARD */
+.profile-card {
+    background: white;
+    border-radius: 12px;
+    padding: 50px 70px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* AVATAR */
+.avatar {
+    text-align: center;
+}
+
+.avatar-circle {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background-color: #c97c7c;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.avatar-circle img {
+    width: 90px;
+    opacity: 0.9;
+}
+
+.edit-link {
+    color: #6b1f1f;
+    font-size: 14px;
+    text-decoration: underline;
+}
+
+/* INFO */
+.info h2 {
+    color: #6b1f1f;
+    margin-bottom: 25px;
+}
+
+.info-item {
+    color: #6b1f1f;
+    margin-bottom: 18px;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* SUCCESS */
+.success-msg {
+    text-align: center;
+    color: green;
+    margin-top: 30px;
+}
+
+.logout-btn {
+    position: absolute;
+    bottom: 200px;
+    right: 50px;
+}
+
+.logout-btn button {
+    background-color: #6b1c1c;
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 999px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.logout-btn button:hover {
+    background-color: #531414;
+}
+
+/*EDIT PROFILE*/
+nav a {
+    color: white;
+    margin-left: 15px;
+    text-decoration: none;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 30px;
+    color: #6b1f1f;
+    font-weight: bold;
+    font-size: 35px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    padding: 40px;
+}
+
+.avatar {
+    text-align: center;
+}
+
+.avatar-circle {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background-color: #c97c7c;
+    margin-bottom: 10px;
+}
+
+form {
+    width: 400px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0 15px;
+    border-radius: 8px;
+    border: none;
+    background-color: #eee;
+}
+
+button {
+    padding: 12px 40px;
+    border-radius: 20px;
+    border: none;
+    background-color: #c97c7c;
+    color: white;
+    font-size: 16px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

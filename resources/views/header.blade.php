@@ -33,7 +33,7 @@
         </a>
 
         @if(session()->has('user'))
-        <a href="{{ route('home') }}">
+        <a href="{{ route('profile') }}">
             <img src="{{ asset('images/logos/profile.png') }}" alt="Profile" class="profile-icon">
         </a>
         @else

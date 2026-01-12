@@ -35,7 +35,7 @@ class AuthController extends Controller
                 ]
             ]);
 
-            return redirect()->route('home');
+            return redirect()->route('profile');
         }
 
         return back()->with('error', 'Invalid username or password');
@@ -66,13 +66,13 @@ class AuthController extends Controller
     }
 
     // SHOW HOME / PROFILE PAGE
-    public function home()
+    public function profile()
     {
         if (!session()->has('user')) {
             return redirect()->route('login');
         }
 
-        return view('home', [
+        return view('profile', [
             'user' => session('user')
         ]);
     }
@@ -123,13 +123,13 @@ class AuthController extends Controller
         ]
     ]);
 
-    return redirect()->route('home')->with('success', 'Profile updated successfully!');
+    return redirect()->route('profile')->with('success', 'Profile updated successfully!');
 }
 
     // LOGOUT
     public function logout()
     {
         session()->forget('user');
-        return redirect()->route('login');
+        return redirect()->route('home');
     }
 }

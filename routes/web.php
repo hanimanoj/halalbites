@@ -56,3 +56,12 @@ Route::post('/login', [AuthController::class, 'login'])->name('login.submit');
 
 Route::get('/signup', [AuthController::class, 'showSignup'])->name('signup');
 Route::post('/signup', [AuthController::class, 'signup'])->name('signup.submit');
+
+Route::get('/profile', [AuthController::class, 'profile'])
+    ->name('profile');
+
+Route::get('/profile/edit', [AuthController::class, 'editProfile'])->name('profile.edit');
+Route::post('/profile/update', [AuthController::class, 'updateProfile'])->name('profile.update');
+
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
