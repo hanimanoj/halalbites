@@ -12,9 +12,9 @@
             DIRECTORY
         </h1>
         <div class="text-lg mb-8 px-6">
-          <h1 class="hover:text-[#7a2e2e] transition font-medium">
-              {{ strtoupper($currentCategory) }}
-          </h1>
+          <span class="font-medium hover:text-[#7a2e2e] transition">
+            {{ strtoupper($currentCategory) }}
+          </span>
         </div>
 
         <!-- CARD AREA -->
@@ -53,19 +53,19 @@
 
           <!-- BOOKMARK -->
           <div class="absolute top-4 right-4">
-    <form action="{{ route('saved.store', $brand->id) }}" method="POST">
-        @csrf
-        <button type="submit">
-            <img 
-                src="{{ asset('images/logos/save.png') }}"
-                alt="Save"
-                class="w-5 h-5 opacity-80
-                       transition-all duration-300
-                       hover:scale-110 hover:opacity-100"
+            <form action="{{ route('saved.store', $brand->id) }}" method="POST">
+              @csrf
+              <button type="submit">
+                <img 
+                  src="{{ asset('images/logos/save.png') }}"
+                  alt="Save"
+                  class="w-5 h-5 opacity-80
+                         transition-all duration-300
+                         hover:scale-110 hover:opacity-100"
             >
-        </button>
-    </form>
-</div>
+              </button>
+            </form>
+          </div>
 
 
           <h3 class="font-semibold text-sm leading-tight">
@@ -88,8 +88,8 @@
                   group-hover:tracking-wide">
             Go
           </a>
-          </div>
-  </div>
+        </div>
+      </div>
 
             @endforeach
         </div>

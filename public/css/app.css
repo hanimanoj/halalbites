@@ -78,6 +78,7 @@ nav a.active {
 
 .hero p {
     font-size: 25px;
+    margin-bottom: 30px;
 }
 
 .btn {
@@ -88,7 +89,6 @@ nav a.active {
     border-radius: 100px;
     cursor: pointer;
     font-size: 25px;
-    font-family: 'Times New Roman', Times, serif;
 }
 
 /*ABOUT*/
@@ -201,7 +201,8 @@ nav a.active {
 
 /* VERSE */
 .verse {
-    margin-top: 30px;
+    margin-top: 50px;
+    margin-bottom: 30px;
     font-style: italic;
     font-weight: bold;
 }

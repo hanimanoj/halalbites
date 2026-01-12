@@ -5,7 +5,9 @@
     <h1>THE EASIEST WAY TO<br>FIND YOUR HALAL FOODS</h1>
     <p>Halal Bites Gombak is the perfect tool to satisfy your cravings.<br>
        Start using it now!</p>
-    <button class="btn">Get Started</button>
+    <a href="{{ route('directory.index') }}" class="btn">
+        Get Started
+    </a>
 </section>
 
 <hr class="divider">
