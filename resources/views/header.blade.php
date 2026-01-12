@@ -34,11 +34,11 @@
 
         @if(session()->has('user'))
         <a href="{{ route('home') }}">
-            <img src="{{ asset('images/logos/profile.png') }}" alt="Profile">
+            <img src="{{ asset('images/logos/profile.png') }}" alt="Profile" class="profile-icon">
         </a>
         @else
         <a href="{{ route('login') }}">
-            <img src="{{ asset('images/logos/profile.png') }}" alt="Login">
+            <img src="{{ asset('images/logos/profile.png') }}" alt="Login" class="profile-icon">
         </a>
         @endif
     </div>
