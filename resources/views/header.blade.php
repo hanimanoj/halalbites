@@ -32,8 +32,14 @@
             <img src="{{ asset('images/logos/settings.png') }}" alt="settings" class="settings-icon">
         </a>
 
-        <a href="#" class="logo">
-            <img src="{{ asset('images/logos/profile.png') }}" alt="profile" class="profile-icon">
+        @if(session()->has('user'))
+        <a href="{{ route('home') }}">
+            <img src="{{ asset('images/logos/profile.png') }}" alt="Profile">
         </a>
+        @else
+        <a href="{{ route('login') }}">
+            <img src="{{ asset('images/logos/profile.png') }}" alt="Login">
+        </a>
+        @endif
     </div>
 </header>

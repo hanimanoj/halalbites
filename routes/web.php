@@ -6,6 +6,7 @@ use App\Http\Controllers\DirectoryController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\SavedController;
 use App\Http\Controllers\SettingsController;
+use App\Http\Controllers\AuthController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -49,3 +50,9 @@ Route::post('/settings/language-toggle', function (Request $request) {
 
 Route::post('/settings/permission', [SettingsController::class, 'savePermission'])
     ->name('settings.permission');
+
+Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
+Route::post('/login', [AuthController::class, 'login'])->name('login.submit');
+
+Route::get('/signup', [AuthController::class, 'showSignup'])->name('signup');
+Route::post('/signup', [AuthController::class, 'signup'])->name('signup.submit');
