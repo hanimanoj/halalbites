@@ -373,7 +373,13 @@ body.dark nav a.active {
 
 body.dark .settings-page {
     padding-bottom: 70px;
+    color: #ffffff;
+    
 
+}
+
+body.dark  .settings-page h1{
+    color: #ffffff;
 }
 
 body.dark .settings-card {
