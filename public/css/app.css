@@ -287,9 +287,8 @@ body.dark .footer {
 }
 
 .settings-page {
-    padding: 60px;
+    padding-bottom: 70px;
     color: #000000;
-    margin-top: 20px;
     font-size: 25px;
 }
 
@@ -297,16 +296,22 @@ body.dark .footer {
     font-size: 38px;
     font-weight: bold;
     margin-bottom: 30px;
-    padding-left: 280px;    
+    padding-left: 0;
+    text-align: center; 
 }
 
 .settings-card {
     background: #b67b7b;
     padding: 30px;
     border-radius: 15px;
-    width: 60%;
+    max-width: 700px;
+    width: 100%;
     align-items: center;
     margin: 0 auto;
+}
+
+.settings-card form {
+    width: 100%;
 }
 
 .h3 {
@@ -367,14 +372,18 @@ body.dark nav a.active {
 }
 
 body.dark .settings-page {
-    padding: 60px;
+    padding-bottom: 70px;
+
 }
 
 body.dark .settings-card {
     background: #000000;
     padding: 30px;
     border-radius: 15px;
-    width: 60%;
+    max-width: 700px;
+    width: 100%;
+    align-items: center;
+    margin: 0 auto;
 }
 
 body.dark .section-title {
