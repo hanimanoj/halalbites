@@ -52,20 +52,23 @@
                       group-hover:bg-[#581616]">
 
           <!-- BOOKMARK -->
-          <div class="absolute top-4 right-4">
-            <form action="{{ route('saved.store', $brand->id) }}" method="POST">
-              @csrf
-              <button type="submit">
-                <img 
-                  src="{{ asset('images/logos/save.png') }}"
-                  alt="Save"
-                  class="w-5 h-5 opacity-80
-                         transition-all duration-300
-                         hover:scale-110 hover:opacity-100"
-            >
-              </button>
-            </form>
-          </div>
+              
+              <!-- SAVE -->
+                    <div class="save-btn">
+                        <button 
+                            type="button"
+                            class="btn-save"
+                            data-name="{{ $cafe['name'] }}"
+                            data-url="{{ $cafe['url'] }}"
+                                                            >
+                            <img 
+                              src="{{ asset('images/logos/save.png') }}" alt="Save"
+                              class="w-5 h-5 opacity-80
+                                transition-all duration-300
+                                 hover:scale-110 hover:opacity-100"
+                                >
+                        </button>
+                    </div>
 
 
           <h3 class="font-semibold text-sm leading-tight">
