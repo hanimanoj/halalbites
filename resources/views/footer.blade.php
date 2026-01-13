@@ -8,7 +8,7 @@
                 <a href="https://mail.google.com/mail/?view=cm&fs=1&to=halalbitesgombak@gmail.com" target="_blank">
                     <img src="{{ asset('images\logos\email.png') }}" alt="email" class="email-icon">
                 </a>
-                <a href="tel:+60195788809">
+                <a href="https://www.wasap.my/+60195788809/">
                 <img src="{{ asset('images\logos\call.png') }}" alt="call" class="call-icon">
                 </a>
             </div>
