@@ -2,41 +2,41 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Brand;
 use Illuminate\Http\Request;
+use App\Models\SavedPage;
 
-class SavedController extends Controller
+class SavedPageController extends Controller
 {
+    public function save(Request $request)
+    {
+        $request->validate([
+            'page_name' => 'required|string',
+            'page_url' => 'required|string',
+        ]);
+
+        SavedPage::updateOrCreate(
+            ['page_url' => $request->page_url],
+            ['page_name' => $request->page_name]
+        );
+
+        return response()->json([
+        'status' => 'success',
+        'message' => 'Your saved is successful'
+        ]);
+        
+    }
+
     public function index()
     {
-        $savedIds = session()->get('saved_brands', []);
-        $savedBrands = Brand::with('locations')
-            ->whereIn('id', $savedIds)
-            ->get();
-
-        return view('saved', compact('savedBrands'));
+        $savedPages = SavedPage::latest()->get();
+        return view('saved-pages', compact('savedPages'));
     }
 
-    public function store(Brand $brand)
+    public function destroy($id)
     {
-        $saved = session()->get('saved_brands', []);
+        $saved = SavedPage::findOrFail($id);
+        $saved->delete();
 
-        if (!in_array($brand->id, $saved)) {
-            $saved[] = $brand->id;
-        }
-
-        session()->put('saved_brands', $saved);
-
-        return redirect()->route('saved.index');
-    }
-
-    public function destroy(Brand $brand)
-    {
-        $saved = session()->get('saved_brands', []);
-        $saved = array_diff($saved, [$brand->id]);
-
-        session()->put('saved_brands', $saved);
-
-        return back();
+        return redirect()->back(); // Kembali ke saved-pages
     }
 }
