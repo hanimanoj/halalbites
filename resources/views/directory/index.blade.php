@@ -23,7 +23,7 @@
 
           <div
               class="group w-full max-w-[260px] h-[280px]
-                    bg-white rounded-2xl
+                    bg-white rounded-2xl 
                     overflow-hidden
                     shadow-md
                     transition-all duration-300
@@ -52,20 +52,20 @@
                       group-hover:bg-[#581616]">
 
           <!-- BOOKMARK -->
-          <div class="absolute top-4 right-4">
-            <form action="{{ route('saved.store', $brand->id) }}" method="POST">
-              @csrf
-              <button type="submit">
-                <img 
-                  src="{{ asset('images/logos/save.png') }}"
-                  alt="Save"
-                  class="w-5 h-5 opacity-80
-                         transition-all duration-300
-                         hover:scale-110 hover:opacity-100"
-            >
-              </button>
-            </form>
-          </div>
+          <form action="{{ route('saved.store', $brand->id) }}" method="POST"
+      class="absolute top-4 right-4">
+    @csrf
+    <button type="submit"
+        class="bg-transparent p-0 m-0 border-0 outline-none shadow-none">
+        <img 
+          src="{{ asset('images/logos/save.png') }}"
+          alt="Save"
+          class="w-5 h-5 opacity-80
+                 transition-all duration-300
+                 hover:scale-110 hover:opacity-100"
+        >
+    </button>
+</form>
 
 
           <h3 class="font-semibold text-sm leading-tight">
