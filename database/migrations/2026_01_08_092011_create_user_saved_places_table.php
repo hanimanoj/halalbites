@@ -11,13 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('saved_brands', function (Blueprint $table) {
+        Schema::create('saved_pages', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->foreignId('brand_id')->constrained()->onDelete('cascade');
+            $table->string('page_name');
+            $table->string('page_url')->unique();
             $table->timestamps();
-
-            $table->unique(['user_id', 'brand_id']);
         });
     }
 
@@ -26,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('user_saved_places');
+        Schema::dropIfExists('saved_pages');
     }
 };
