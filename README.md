@@ -46,6 +46,237 @@ Halal Bites Gombak is a proposed web-based application designed to help users di
 - Saved Page: Access a list of bookmarked outlets for future reference
 - Responsive Interface: Optimized viewing experience on desktop and mobile devices
 
+##  Technical Implementation
+
+** Technology Stack **
+
+Backend Framework: Laravel 12.44.0
+Frontend: Blade Templates with Custom CSS 
+Image Management: Public Directory Assets
+Database: MYSQL 8.0
+Authentication: Laravel Breeze
+Development Environment: XAMPP
+
+** Database Design **
+
+Database Schema Overview
+Our database schema is designed using Laravel migrations and consists of several core tables that support user management, directory listing, location data and bookmarking functionality.
+
+Core Tables: 
+
+Users → Registered user information including name, email, password, phone number and location
+Categories → Classify and organize food establishments for each category
+Brands → Information about halal food businesses
+Locations → Stores address information for each brand
+Saved pages → Allowing to save favourites brand for later reference
+
+
+## Entity Relationship Diagram (ERD)
+
+https://docs.google.com/document/d/18D3RzprQAWfc_asWuMPRowEEN0xdfrNPirWR-ndoPxU/edit?tab=t.0#heading=h.s0addzvv3j21
+
+Key Relationships:
+
+- Users saved many brands and one brands can saved by many users (Many-to-Many)
+- Categories has many brands (One-to-Many)
+- User can performs many searches (One-to-Many)
+- A brand can be saved by many users (One-to-Many)
+
+
+### Laravel Components Implementations 
+
+- Routes (web.php)
+
+php
+'// Homepage Routes'
+Route::get('/', function () {
+    return view('welcome');
+})->name('home');
+
+'// Directory Routes'
+Route::get('/directory', [DirectoryController::class, 'index'])->name('directory.index');
+Route::get('/directory/category/{slug}', [DirectoryController::class, 'category'])->name('directory.category');
+Route::get('/directory/{brand:slug}', [DirectoryController::class, 'show'])->name('directory.show');
+
+'// Saved Routes'
+Route::get('/saved', [SavedController::class, 'index'])->name('saved-pages');
+Route::post('/saved/{brand}', [SavedController::class, 'store'])->name('saved.store');
+Route::delete('/saved/{id}', [SavedController::class, 'destroy'])->name('saved.destroy');
+
+'// Settings Routes'
+Route::get('/settings', function () {return view('settings'); })->name('settings');
+
+Route::post('/settings/toggle', function (Request $request) {
+    session(['dark_mode' => $request->has('dark_mode'),]);
+        return redirect()->back(); })->name('toggle.mode');
+
+Route::post('/settings/language-toggle', function (Request $request) {
+    session(['locale' => $request->has('language') ? 'ms' : 'en',]);
+        return redirect()->back();})->name('language.toggle');
+
+Route::post('/settings/permission', [SettingsController::class, 'savePermission'])->name('settings.permission');
+
+'// Authentication Routes'
+Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
+Route::post('/login', [AuthController::class, 'login'])->name('login.submit');
+Route::get('/signup', [AuthController::class, 'showSignup'])->name('signup');
+Route::post('/signup', [AuthController::class, 'signup'])->name('signup.submit');
+
+'// Profile Routes'
+Route::get('/profile', [AuthController::class, 'profile'])->name('profile');
+Route::get('/profile/edit', [AuthController::class, 'editProfile'])->name('profile.edit');
+Route::post('/profile/update', [AuthController::class, 'updateProfile'])->name('profile.update');
+
+'// Logout Routes'
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+'// Brand Routes'
+Route::post('/brand/{brand}/toggle-save', [BrandController::class, 'toggleSave'])->name('brand.toggleSave');
+
+'// Search Routes'
+Route::get('/directory/search', [DirectoryController::class, 'search'])->name('directory.search');
+Route::get('/search/live', [DirectoryController::class, 'liveSearch']);
+
+
+- Controllers
+
+    *Main Controllers Implemented are below:*
+
+    1. AuthController: Manages all user authentication processes, ensuring secure access to the system
+    2. HomeController: Handles homepage display and details about the website 
+    3. DirectoryController: Handles the display, management of the brand directory and filtering brands by category
+    4. BrandController: Manages brand-related operations by listing all brands and displaying detailed information for selected brands
+    5. SavedController: Handles the functionality for saving favourites brands for future references
+    6. SettingsController: Manages user preferences and profile information
+
+
+- Models and Relationship
+
+php
+// User Model
+	
+class User extends Authenticatable
+{
+    use HasFactory, Notifiable;
+
+protected $fillable = ['name','email','password',];
+
+protected $hidden = ['password','remember_token',];
+
+protected function casts(): array
+    {
+        return ['email_verified_at' => 'datetime','password' => 'hashed',];
+    }
+
+public function savedBrands()
+    {   
+        return $this->belongsToMany(Brand::class, 'saved_brands')
+                ->withTimestamps();
+    }
+}
+
+// Brand Model
+
+class Brand extends Model
+{
+    protected $fillable = ['name','company_name','operating_hour','jakim_ref_no','expiry_year','category_id',];
+    
+public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+public function locations()
+    {
+        return $this->hasMany(Location::class);
+    }
+
+public function getHalalStatusAttribute()
+    {
+        return $this->expiry_year >= now()->year
+            ? 'Active'
+            : 'Expired';
+    }
+
+public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
+public function savedPages()
+    {
+        return $this->hasMany(SavedPage::class);
+    }
+}
+
+// Category Model
+
+class Category extends Model
+{
+    protected $fillable = ['name'];
+    
+public function brands()
+    {
+        return $this->hasMany(Brand::class);
+    }
+}
+
+// Location Model
+
+class Location extends Model
+{
+    public function brand()
+    {
+        return $this->belongsTo(Brand::class, 'brand_id');
+    }
+}
+
+// Place Model
+
+class Place extends Model
+{
+    //
+}
+
+// SavedPage Model
+
+class SavedPage extends Model
+{
+    protected $fillable = ['brand_id'];
+
+public function brand()
+    {
+        return $this->belongsTo(Brand::class);
+    }
+}
+
+
+- Views and User Interface
+
+    *Blade Templates Structure:*
+
+    - layouts/app.blade.php - Main application layout 
+    - signup.blade.php - Displays the registration to create an account
+    - login.blade.php - Enter their credentials to access to the system
+    - header.blade.php - Displays logo, navigation bar, search button, setting and account that appear on all pages
+    - footer.blade.php - Displays copyright information and social media platform
+    - profile.blade.php - Provide user's information
+    - edit-profile.blade.php - Update user's information
+    - settings.blade.php - Manages account preferences
+    - details.blade.php - Displays detailed information for a selected brands
+    - welcome.blade.php - Homepage that display details information about the websites
+    - directory/index.blade.php - Shows all directory of the brands
+    - sidebar.blade.php - navigation that separates brands by categories
+    - directory/search-results.blade.php - Displays search results 
+    - saved-pages.blade.php - Shows the favourite brands 
+
+    *Design Features:*
+    - Responsive Design: The website uses a mobile-first approach with Tailwind CSS and custom layouts
+    - Color Scheme: A maroon, soft pink and white palette giving a modern and clean appearance
+    - Navigation: Intuitive menu and sidebar structure with user role-based options
+    - Interactive Elements:  Saved brands, perform live searches and view dynamic details for the brands
+
+
 # Future Enhancements
 ### Phase 2 Features (Potential Improvements)
 - User Rating & Review System : Allow users to rate and review halal food outlets and the system itself based on their experience.
