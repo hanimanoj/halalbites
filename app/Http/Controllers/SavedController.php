@@ -23,7 +23,7 @@ class SavedController extends Controller
             'brand_id' => $brandId
         ]);
 
-        return back();
+         return back()->with('success', 'Your save is successful!');
     }
 
     public function destroy($id)

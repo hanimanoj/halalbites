@@ -24,9 +24,12 @@
     </div>
 
     <div class="nav-right">
-        <a href="#" class="logo">
-            <img src="{{ asset('images/logos/search.png') }}" alt="search" class="search-icon">
-        </a>
+
+        <button id="openSearch" class="search-trigger">
+            <img src="{{ asset('images/logos/search.png') }}" class="search-icon">
+        </button>
+
+
 
         <a href="{{ route('settings') }}" class="logo">
             <img src="{{ asset('images/logos/settings.png') }}" alt="settings" class="settings-icon">

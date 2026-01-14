@@ -66,3 +66,8 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::post('/brand/{brand}/toggle-save',
     [BrandController::class, 'toggleSave']
 )->name('brand.toggleSave');
+
+Route::get('/directory/search', [DirectoryController::class, 'search'])
+    ->name('directory.search');
+
+Route::get('/search/live', [DirectoryController::class, 'liveSearch']);

@@ -1,6 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
+
+{{-- popup saved --}}
+
+@if(session('success'))
+    <div id="save-popup" class="save-popup">
+        {{ session('success') }}
+    </div>
+@endif
+
+
 <div class="directory-wrapper">
 
     {{-- SIDEBAR --}}
