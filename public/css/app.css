@@ -581,7 +581,7 @@ h1 {
     margin-bottom: 10px;
 }
 
-form {
+.edit-profile-page form {
     width: 400px;
 }
 
@@ -597,32 +597,3 @@ input {
     border: none;
     background-color: #eee;
 }
-
-button {
-    padding: 12px 40px;
-    border-radius: 20px;
-    border: none;
-    background-color: #c97c7c;
-    color: white;
-    font-size: 16px;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

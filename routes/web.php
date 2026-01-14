@@ -21,12 +21,9 @@ Route::get('/directory/category/{slug}', [DirectoryController::class, 'category'
 Route::get('/directory/{brand:slug}', [DirectoryController::class, 'show'])
     ->name('directory.show');
 
-Route::get('/saved', [SavedController::class, 'index'])
-    ->name('saved.index');
-
-Route::post('/saved/{brand}', [SavedController::class, 'store'])->name('saved.store');
-Route::delete('/saved/{brand}', [SavedController::class, 'destroy'])->name('saved.destroy');
+Route::post('/saved', [SavedController::class, 'save'])->name('saved.store');
 Route::get('/saved', [SavedController::class, 'index'])->name('saved.index');
+Route::delete('/saved/{id}', [SavedController::class, 'destroy'])->name('saved.destroy');
 
 Route::get('/settings', function () {
     return view('settings');
@@ -65,3 +62,6 @@ Route::post('/profile/update', [AuthController::class, 'updateProfile'])->name('
 
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
+Route::post('/brand/{brand}/toggle-save',
+    [BrandController::class, 'toggleSave']
+)->name('brand.toggleSave');

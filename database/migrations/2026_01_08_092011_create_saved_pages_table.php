@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('saved_pages', function (Blueprint $table) {
+        Schema::create('saved', function (Blueprint $table) {
             $table->id();
             $table->string('page_name');
-            $table->string('page_url')->unique();
+            $table->string('page_url');
             $table->timestamps();
         });
     }

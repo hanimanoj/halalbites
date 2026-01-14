@@ -8,6 +8,7 @@
         Welcome Back, {{ $user['name'] }}
     </h1>
 
+    <div class="edit-profile-page">
     <form method="POST" action="{{ route('logout') }}" class="logout-btn">
         @csrf
         <button type="submit">Logout</button>
@@ -46,7 +47,7 @@
         </div>
 
     </div>
-
+</div>
     @if(session('success'))
         <p class="success-msg">
             {{ session('success') }}

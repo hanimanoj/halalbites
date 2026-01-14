@@ -4,8 +4,14 @@
     <meta charset="UTF-8">
     <title>Halal Bites Gombak</title>
 
+    <link rel="stylesheet" href="{{ asset('css/directorydesign.css') }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    @stack('styles')
+    
     @vite('resources/css/app.css')
+   
+
+    <meta name="csrf-token" contents="{{ csrf_token() }}">
 
 </head>
 

@@ -4,39 +4,29 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\SavedPage;
+use App\Models\Brand;
 
-class SavedPageController extends Controller
+class SavedController extends Controller
 {
-    public function save(Request $request)
-    {
-        $request->validate([
-            'page_name' => 'required|string',
-            'page_url' => 'required|string',
-        ]);
-
-        SavedPage::updateOrCreate(
-            ['page_url' => $request->page_url],
-            ['page_name' => $request->page_name]
-        );
-
-        return response()->json([
-        'status' => 'success',
-        'message' => 'Your saved is successful'
-        ]);
-        
-    }
-
     public function index()
     {
-        $savedPages = SavedPage::latest()->get();
-        return view('saved-pages', compact('savedPages'));
+        $savedPages = Saved::all();
+        return view('saved-page', compact('savedPages'));
+    }
+
+    public function store(Request $request)
+    {
+        Saved::create([
+            'page_name' => $request->page_name,
+            'page_url'  => $request->page_url,
+        ]);
+
+        return back(); // stay kat directory
     }
 
     public function destroy($id)
     {
-        $saved = SavedPage::findOrFail($id);
-        $saved->delete();
-
-        return redirect()->back(); // Kembali ke saved-pages
+        Saved::findOrFail($id)->delete();
+        return back();
     }
 }
