@@ -6,6 +6,7 @@
 
     <link rel="stylesheet" href="{{ asset('css/directorydesign.css') }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/save.css') }}">
     @stack('styles')
     
     @vite('resources/css/app.css')

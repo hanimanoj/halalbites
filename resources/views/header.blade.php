@@ -16,8 +16,8 @@
                 Directory
             </a>
 
-            <a href="{{ route('saved.index') }}"
-                class="{{ request()->routeIs('saved.index') ? 'active' : '' }}">
+            <a href="{{ route('saved-pages') }}"
+                class="{{ request()->routeIs('saved-pages') ? 'active' : '' }}">
                 Saved
             </a>
         </nav>

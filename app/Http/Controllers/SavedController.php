@@ -2,31 +2,33 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\SavedPage;
 use App\Models\Brand;
+use Illuminate\Http\Request;
 
 class SavedController extends Controller
 {
     public function index()
     {
-        $savedPages = Saved::all();
-        return view('saved-page', compact('savedPages'));
+        $savedPages = SavedPage::with(['brand', 'brand.locations'])->get();
+
+        return view('saved-pages', compact('savedPages'));
     }
 
-    public function store(Request $request)
+
+    public function store($brandId)
     {
-        Saved::create([
-            'page_name' => $request->page_name,
-            'page_url'  => $request->page_url,
+        // prevent duplicate save
+        SavedPage::firstOrCreate([
+            'brand_id' => $brandId
         ]);
 
-        return back(); // stay kat directory
+        return back();
     }
 
     public function destroy($id)
     {
-        Saved::findOrFail($id)->delete();
+        SavedPage::findOrFail($id)->delete();
         return back();
     }
 }

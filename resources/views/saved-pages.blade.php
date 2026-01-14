@@ -2,33 +2,71 @@
 
 @section('content')
 
-<div class="container">
-    <h1>Saved</h1>
-    <p>Lets bookmark and view your favourite halal-certified places you plan to visit.</p>
+<section class="saved-page">
+    <div class="container saved-container">
 
-    <div class="card-row">
-        @forelse($savedPages as $page)
-        <div class="card">
-            <div class="card-body">
+        <h1 class="page-title">Saved</h1>
 
-                {{-- UNSAVE BUTTON --}}
-                <form action="{{ route('saved.destroy', $page->id) }}" method="POST" class="btn-unsave-form">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="btn-unsave">Unsave</button>
-                </form>
+        <p class="page-desc">
+            Lets bookmark and view your favourite halal-certified places you plan to visit.
+        </p>
 
-                {{-- PAGE NAME --}}
-                <h3 class="card-title">{{ $page->page_name }}</h3>
+        <div class="card-row">
+            @forelse($savedPages as $saved)
 
-                {{-- GO BUTTON --}}
-                <a href="{{ $page->page_url }}" class="btn-go">Go</a>
+                <div class="card">
 
-            </div>
+                    {{-- UNSAVE --}}
+                    <form
+                        action="{{ route('saved.destroy', $saved->id) }}"
+                        method="POST"
+                        class="bookmark-btn"
+                    >
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit">
+                            <img
+                            src="{{ asset('images/logos/save.png') }}"
+                            alt="Unsave"
+                        >
+                        </button>
+                    </form>
+
+                    {{-- LOGO --}}
+                    <div class="brand-logo">
+                        @if($saved->brand && $saved->brand->logo)
+                            <img
+                                src="{{ asset($saved->brand->logo) }}"
+                                alt="{{ $saved->brand->name }}"
+                            >
+                        @else
+                            <span>No Logo</span>
+                        @endif
+                    </div>
+
+                    <div class="card-body">
+                        <h3>{{ $saved->brand->name }}</h3>
+
+                        <p>
+                            {{ $saved->brand->locations->first()->address ?? '' }}
+                        </p>
+
+                        <a
+                            href="{{ route('directory.show', $saved->brand->slug) }}"
+                            class="go-btn"
+                        >
+                            Go
+                        </a>
+                    </div>
+
+                </div>
+
+            @empty
+                <p class="no-saved">No places saved yet.</p>
+            @endforelse
         </div>
-        @empty
-            <p class="no-saved">No cafes saved yet.</p>
-        @endforelse
+
     </div>
-</div>
+</section>
+
 @endsection

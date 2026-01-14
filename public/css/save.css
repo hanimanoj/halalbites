@@ -1,0 +1,152 @@
+/* ===============================
+   SAVED PAGE LAYOUT FIX
+================================ */
+
+/* PAGE WRAPPER */
+.saved-page {
+    padding-bottom: 50px;
+    background: #f8e3e3;
+}
+
+/* 🔥 OVERRIDE GLOBAL FLEX */
+.saved-page .saved-container {
+    display: block !important;
+    max-width: 1200px;
+    margin: auto;
+    padding: 40px 20px;
+}
+
+/* TITLE */
+.saved-page .page-title {
+    font-size: 2.3rem;
+    color: #7a2626;
+    margin-bottom: 6px;
+    text-align: left;}
+
+/* DESCRIPTION */
+.saved-page .page-desc {
+    font-size: 0.95rem;
+    color: #5a1c1c;
+    margin-bottom: 2.5rem;
+    max-width: 600px;
+}
+
+/* ===============================
+   CARD GRID
+================================ */
+.saved-page .card-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 3rem;
+}
+
+/* ===============================
+   CARD
+================================ */
+.saved-page .card {
+    width: 100%;
+    max-width: 260px;
+    height: 280px;
+    background: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 0;
+    box-sizing: border-box;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 0px 0px;
+}
+
+.saved-page .card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 14px 30px rgba(0,0,0,0.2);
+}
+
+/* ===============================
+   UNSAVE BUTTON
+================================ */
+.saved-page .bookmark-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 10;
+}
+
+.saved-page .bookmark-btn button {
+    border: none;
+    color: #fff;
+    font-size: 12px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.saved-page .bookmark-btn button:hover {
+    background: #ffffff;
+}
+
+/* ===============================
+   LOGO
+================================ */
+.saved-page .brand-logo {
+    height: 160px;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.saved-page .brand-logo img {
+    max-width: 100%;
+    max-height: 100%;
+    padding: 24px;
+    transition: transform 0.3s ease;
+}
+
+/* ===============================
+   CARD BODY
+================================ */
+.saved-page .card-body {
+    height: 120px;
+    background-color: #6b1f1f;
+    color: #ffffff;
+    position: relative;
+    transition: background-color 0.3s ease;
+    padding: 18px;
+}
+
+.saved-page .card-body h3 {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.saved-page .card-body p {
+    font-size: 12px;
+    opacity: 0.8;
+    margin-top: 4px;
+}
+
+/* ===============================
+   GO BUTTON
+================================ */
+.saved-page .go-btn {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    right: 16px;
+    background: #ffffff;
+    color: #6b1f1f;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 8px 0;
+    border-radius: 6px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.saved-page .go-btn:hover {
+    background: #f2dede;
+    letter-spacing: 1px;
+}

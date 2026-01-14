@@ -3,8 +3,14 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Brand;
 
 class SavedPage extends Model
 {
-    protected $fillable = ['page_name', 'page_url'];
+    protected $fillable = ['brand_id'];
+
+    public function brand()
+    {
+        return $this->belongsTo(Brand::class);
+    }
 }

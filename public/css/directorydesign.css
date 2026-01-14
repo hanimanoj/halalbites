@@ -97,7 +97,7 @@
     position: absolute;
     top: 12px;
     right: 12px;
-    z-index: 50; /* 🔥 penting supaya clickable */
+    z-index: 50; 
 }
 
 .bookmark-btn button {

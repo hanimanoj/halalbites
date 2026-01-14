@@ -21,9 +21,10 @@ Route::get('/directory/category/{slug}', [DirectoryController::class, 'category'
 Route::get('/directory/{brand:slug}', [DirectoryController::class, 'show'])
     ->name('directory.show');
 
-Route::post('/saved', [SavedController::class, 'save'])->name('saved.store');
-Route::get('/saved', [SavedController::class, 'index'])->name('saved.index');
+Route::get('/saved', [SavedController::class, 'index'])->name('saved-pages');
+Route::post('/saved/{brand}', [SavedController::class, 'store'])->name('saved.store');
 Route::delete('/saved/{id}', [SavedController::class, 'destroy'])->name('saved.destroy');
+
 
 Route::get('/settings', function () {
     return view('settings');
