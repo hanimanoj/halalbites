@@ -10,7 +10,6 @@
     </div>
 @endif
 
-
 <div class="directory-wrapper">
 
     {{-- SIDEBAR --}}
