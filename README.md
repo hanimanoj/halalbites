@@ -57,3 +57,54 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+# Future Enhancements
+### Phase 2 Features (Potential Improvements)
+- User Rating & Review System : Allow users to rate and review halal food outlets and the system itself based on their experience.
+- Multilingual Content Expansion : Support more languages for broader user accessibility.
+- Student Budget Mode : Special filter for affordable meals around Gombak
+- Peak Hour & Popularity Insights : Show estimated busy hours based on user visits and interactions.
+- Temporary Closure Alerts : Notify users when outlets close due to hygiene, rennovation or halal issues.
+
+
+### Scalability Considerations
+
+- Database Optimization: Improve query efficiency to handle a growing number of food listings
+- Caching Implementation: Use caching to enhance performance and reduce server load
+- Load Management: Prepare the system to handle increased user traffic
+
+
+
+## Learning Outcomes
+### Technical Skills Gained
+
+- Web Application Development: Building a full-stack system using Laravel as the backend framework.
+- Relational Database Management: Structuring and managing interconnected data efficiently.
+- Authentication System : Implementing secure user login and role-based access control
+- Source Code Management: Applying version control practices for collaborative development.
+
+### Soft Skills Developed
+
+- Communication Skills: Coordinating tasks and discussing solutions with team members.
+- Time Management: Completing project milestones within set deadlines.
+- Analytical Thinking: Identifying issues and evaluating suitable technical solutions.
+
+## Conclusion
+Halal Bites Gombak represents a practical implementation of a halal food discovery platform designed to support users in locating halal dining options within the Gombak area. The project reflects the effective application of web development concepts and structured system design.
+
+### Key Achievements
+
+- Successfully implemented all required Laravel components (Routes, Controllers, Views, Models)
+- Successfully designed and developed a location-based halal food discovery platform
+- Implemented structured data management with full CRUD functionality
+- Integrated user authentication feature
+- Ensured system stability and maintainability through proper coding practices
+
+
+### Project Impact
+This project enhances practical understanding of real-world web application development while promoting teamwork and problem-solving skills. The experience gained from developing Halal Bites Gombak provides a strong foundation for future software development projects and industry applications.
+
+- Project Completion Date: 16/11/2025
+- Course: INFO 3305 Web Application Development
+
+
