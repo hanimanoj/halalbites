@@ -275,6 +275,86 @@ public function brand()
     - Color Scheme: A maroon, soft pink and white palette giving a modern and clean appearance
     - Navigation: Intuitive menu and sidebar structure with user role-based options
     - Interactive Elements:  Saved brands, perform live searches and view dynamic details for the brands
+ 
+## User Authentication System
+
+### Authentication Features
+
+* User login using username and password
+* Session-based authentication
+* User profile viewing and editing
+* Secure logout functionality
+* Saved items linked to authenticated users
+
+### Security Measures
+
+* Password hashing using Laravel Hash
+* Input validation for login and profile update forms
+* Session handling to prevent unauthorized access
+* Logout clears active user sessions
+* Protection against invalid or empty inputs
+
+### Installation & Setup Instructions
+
+* PHP, Composer, Laravel, and MySQL required
+* Dependencies managed using Composer
+* Environment configuration via `.env` file
+* Database connection setup required
+* Laravel built-in server used for deployment
+
+### Step-by-Step Installation
+
+* Clone or extract the project repository
+* Run `composer install`
+* Copy `.env.example` to `.env`
+* Configure database credentials in `.env`
+* Run `php artisan key:generate`
+* Run `php artisan migrate`
+* Start the application using `php artisan serve`
+* Access the system through a web browser
+
+## Testing & Quality Assurance
+
+### Functionality Testing
+
+* Verified login with valid credentials
+* Tested login rejection with invalid credentials
+* Confirmed profile updates save correctly
+* Ensured logout ends user session
+* Verified authenticated access to saved items
+
+### Browser Compatibility
+
+* Tested on Google Chrome
+* Tested on Mozilla Firefox
+* Tested on Microsoft Edge
+* Responsive layout works on different screen sizes
+
+### Performance Testing
+
+* Fast page load time for main pages
+* Smooth search and filtering operations
+* Efficient session handling
+* Optimized database queries using Laravel ORM
+
+## Challenges & Solutions
+
+### Challenges
+
+* Managing user authentication flow
+* Preventing unauthorized access to pages
+* Ensuring password security
+* Handling form validation errors
+* Database migration conflicts
+
+### Solutions
+
+* Implemented Laravel authentication features
+* Added access control checks in controllers
+* Used Laravel password hashing
+* Applied proper request validation
+* Fixed schema issues and re-ran migrations
+
 
 
 # Future Enhancements
